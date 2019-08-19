@@ -6,9 +6,7 @@ dotenv.config();
 const secp256k1 = require('@aztec/secp256k1');
 
 
-// const PrivateVenmo = artifacts.require('./PrivateVenmo.sol');
 const ZkAssetMintable = artifacts.require('./ZkAssetMintable.sol');
-const JoinSplit = artifacts.require('@aztec/protocol/contracts/ACE/validators/joinSplit/JoinSplit.sol');
 
 const {
   proofs: {
@@ -48,7 +46,6 @@ contract('Private payment', async (accounts) => {
 
     const mintData = mintProof.encodeABI();
 
-    // await privatePaymentContract.setProofs(1, -1, {from: accounts[0]});
     await privatePaymentContract.confidentialMint(MINT_PROOF, mintData, {from: accounts[0]});
 
     console.log('Bob succesffully deposited 100');
