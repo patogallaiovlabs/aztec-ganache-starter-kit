@@ -16,8 +16,7 @@ const {
 
 const { JoinSplitProof, MintProof } = aztec;
 
-
-contract('Private payment', async (accounts) => {
+contract('Private payment', accounts => {
 
   const bob = secp256k1.accountFromPrivateKey(process.env.GANACHE_TESTING_ACCOUNT_0);
   const sally = secp256k1.accountFromPrivateKey(process.env.GANACHE_TESTING_ACCOUNT_1);
@@ -28,7 +27,7 @@ contract('Private payment', async (accounts) => {
   });
 
   it('Bob should be able to deposit 100 then pay sally 25 by splitting notes he owns', async() => {
-    
+
     console.log('Bob wants to deposit 100');
     const bobNote1 = await aztec.note.create(bob.publicKey, 100);
 
@@ -75,11 +74,10 @@ contract('Private payment', async (accounts) => {
     await privatePaymentContract.confidentialTransfer(sendProofData, sendProofSignatures, {
       from: accounts[0],
     });
-    
+
     console.log(
       'Bob paid sally 25 for the taxi and gets 75 back'
     );
 
   })
 });
-
