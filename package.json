@@ -26,13 +26,13 @@
     "ganache-core": "^2.5.4-beta.2",
     "solhint": "^2.0.0",
     "solium": "^1.2.3",
-    "truffle": "^5.0.17"
+    "truffle": "^5.0.33"
   },
   "scripts": {
     "compile": "truffle compile --all",
     "migrate": "truffle compile --all && truffle migrate --reset",
     "ganache": "babel-node scripts/run ganache",
-    "demo": "truffle demo.js",
+    "demo": "truffle test test/demo.js",
     "start": "npm run ganache"
   }
 }
