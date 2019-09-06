@@ -33,7 +33,7 @@ contract('Private payment', accounts => {
 
     const newMintCounterNote = await aztec.note.create(bob.publicKey, 100);
     const zeroMintCounterNote = await aztec.note.createZeroValueNote();
-    const sender = privatePaymentContract.address;
+    const sender = accounts[0];
     const mintedNotes = [bobNote1];
 
     const mintProof = new MintProof(
@@ -45,7 +45,12 @@ contract('Private payment', accounts => {
 
     const mintData = mintProof.encodeABI();
 
-    await privatePaymentContract.confidentialMint(MINT_PROOF, mintData, {from: accounts[0]});
+    // think the problem might be who is the owner - the values work out
+    console.log({ sender });
+
+
+    console.log({ privatePaymentContract });
+    await privatePaymentContract.confidentialMint(MINT_PROOF, mintData, { from: sender });
 
     console.log('Bob succesffully deposited 100');
 
@@ -71,7 +76,8 @@ contract('Private payment', accounts => {
     );
     const sendProofData = sendProof.encodeABI(privatePaymentContract.address);
     const sendProofSignatures = sendProof.constructSignatures(privatePaymentContract.address, [bob])
-    await privatePaymentContract.confidentialTransfer(sendProofData, sendProofSignatures, {
+
+    await privatePaymentContract.methods['confidentialTransfer(bytes,bytes)'](sendProofData, sendProofSignatures, {
       from: accounts[0],
     });
 

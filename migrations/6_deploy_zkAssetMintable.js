@@ -10,7 +10,7 @@ module.exports = async (deployer, network) => {
   let aceContract;
   if (network === 'development') {
     aceContract = await ACE.deployed();
-    // initialise the ZkAsset with an ERC20 equivilant
+    // initialise the ZkAsset with an ERC20 equivalent
     await deployer.deploy(
       ZkAsset,
       aceContract.address,
@@ -23,6 +23,8 @@ module.exports = async (deployer, network) => {
       aceContract.address,
       '0x0000000000000000000000000000000000000000',
       1,
+      0,
+      [],
     );
   }
 };
