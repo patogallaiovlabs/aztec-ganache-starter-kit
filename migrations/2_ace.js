@@ -27,6 +27,8 @@ module.exports = async (deployer, network) => {
     await deployer.deploy(JoinSplit);
     await deployer.deploy(PrivateRange);
 
+    console.log('CRS: ', constants.CRS);
+
     await deployer.deploy(Dividend);
     const ACEContract = await ACE.deployed(constants.CRS);
     const JoinSplitFluidContract = await JoinSplitFluid.deployed();
