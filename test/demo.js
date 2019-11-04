@@ -47,7 +47,7 @@ contract('Private payment', accounts => {
 
     await privatePaymentContract.confidentialMint(MINT_PROOF, mintData, {from: accounts[0]});
 
-    console.log('Bob succesffully deposited 100');
+    console.log('Bob successfully deposited 100');
 
     // bob needs to pay sally for a taxi
     // the taxi is 25
