@@ -6,9 +6,9 @@ const PrivateRange = artifacts.require('./PrivateRange.sol');
 const JoinSplit = artifacts.require('./JoinSplit.sol');
 
 const utils = require('@aztec/dev-utils');
+const bn128 = require('@aztec/bn128');
 
 const {
-  constants,
   proofs: {
     JOIN_SPLIT_PROOF,
     MINT_PROOF,
@@ -28,9 +28,9 @@ module.exports = async (deployer, network) => {
     await deployer.deploy(PrivateRange);
 
     await deployer.deploy(Dividend);
-    const ACEContract = await ACE.deployed(constants.CRS);
+    const ACEContract = await ACE.deployed(bn128.CRS);
     const JoinSplitFluidContract = await JoinSplitFluid.deployed();
-    await ACEContract.setCommonReferenceString(constants.CRS);
+    await ACEContract.setCommonReferenceString(bn128.CRS);
     await ACEContract.setProof(MINT_PROOF, JoinSplitFluidContract.address);
     await ACEContract.setProof(SWAP_PROOF, Swap.address);
     await ACEContract.setProof(DIVIDEND_PROOF, Dividend.address);

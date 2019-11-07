@@ -23,6 +23,8 @@ module.exports = async (deployer, network) => {
       aceContract.address,
       '0x0000000000000000000000000000000000000000',
       1,
+      0,
+      [],
     );
   }
 };
