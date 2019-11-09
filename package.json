@@ -10,6 +10,7 @@
     "@aztec/protocol": "0.12.1",
     "@aztec/secp256k1": "1.0.2",
     "aztec.js": "0.15.1",
+    "global": "^4.4.0",
     "openzeppelin-solidity": "^2.2.0",
     "web3": "^1.0.0-beta.51"
   },
@@ -27,7 +28,7 @@
     "ganache-core": "^2.5.4-beta.2",
     "solhint": "^2.0.0",
     "solium": "^1.2.3",
-    "truffle": "^5.0.33"
+    "truffle": "^5.0.44"
   },
   "scripts": {
     "compile": "truffle compile --all",

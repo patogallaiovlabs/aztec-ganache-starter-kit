@@ -3,7 +3,7 @@ require('@babel/register');
 module.exports = {
   compilers: {
     solc: {
-      version: '0.5.4',
+      version: '>=0.5.0 <0.7.0',
       settings: {
         optimizer: {
           enabled: true,
