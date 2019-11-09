@@ -8,7 +8,7 @@ A repository that helps dApp developers deploy AZTEC to a local blockchain.
 
 2. Install the dependencies `cd aztec-ganache-starter-kit && yarn install`
 
-3. Rename the `.env` file  `mv RENAME_ME.env .env`
+3. Rename the `.env` file  `cp RENAME_ME.env .env`
 
 4. Start up Ganache `yarn start` (This will create 5 test ethereum accounts from the credentials in `.env`)
 
