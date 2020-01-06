@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/AztecProtocol/aztec-ganache-starter-kit.svg?style=svg)](https://circleci.com/gh/AztecProtocol/aztec-ganache-starter-kit)
+
 # aztec-ganache-starter-kit
 
 A repository that helps dApp developers deploy AZTEC to a local blockchain.
