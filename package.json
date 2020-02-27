@@ -6,7 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "@aztec/bn128": "1.3.1",
-    "@aztec/dev-utils": "2.3.1",
+    "@aztec/dev-utils": "2.4.0",
     "@aztec/protocol": "1.5.0",
     "@aztec/secp256k1": "1.2.0",
     "aztec.js": "0.16.21",
