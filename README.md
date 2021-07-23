@@ -6,7 +6,7 @@ A repository that helps dApp developers deploy AZTEC to a local blockchain.
 
 ### Getting started
 
-1. Clone this repository `git clone --recursive git@github.com:patogallaiovlabs/aztec-ganache-starter-kit.git`
+1. Clone this repository `git clone --recursive git@github.com:patogallaiovlabs/aztec-rsk-starter-kit.git`
 
 2. Install the dependencies `cd aztec-ganache-starter-kit && yarn install`
 
