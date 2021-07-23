@@ -6,14 +6,12 @@ A repository that helps dApp developers deploy AZTEC to a local blockchain.
 
 ### Getting started
 
-1. Clone this repository `git clone git@github.com:AztecProtocol/aztec-ganache-starter-kit.git`
+1. Clone this repository `git clone --recursive git@github.com:patogallaiovlabs/aztec-ganache-starter-kit.git`
 
 2. Install the dependencies `cd aztec-ganache-starter-kit && yarn install`
 
-3. Start up Ganache `yarn start` (This will create 5 test ethereum accounts from the credentials in `.env`)
+3. Start RSK node `./rskj-init.sh && ./rsk-start.sh`
 
-4. Compile the contracts `yarn compile`
-
-5. Deploy AZTEC! `yarn migrate`
+4. Deploy AZTEC! `yarn migrate`
 
 6. Run the private payment demo. `yarn demo`

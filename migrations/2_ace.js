@@ -36,5 +36,6 @@ module.exports = async (deployer, network) => {
     await ACEContract.setProof(DIVIDEND_PROOF, Dividend.address);
     await ACEContract.setProof(JOIN_SPLIT_PROOF, JoinSplit.address);
     await ACEContract.setProof(PRIVATE_RANGE_PROOF, PrivateRange.address);
+    console.log('ACE address:', ACEContract.address);
   }
 };

@@ -1,0 +1,3 @@
+[submodule "rskj"]
+	path = rskj
+	url = git@github.com:patogallaiovlabs/rskj.git

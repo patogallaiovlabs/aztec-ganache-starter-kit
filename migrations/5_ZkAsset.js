@@ -13,18 +13,18 @@ module.exports = async (deployer, network) => {
     // initialise the ZkAsset with an ERC20 equivilant
     await deployer.deploy(
       ZkAsset,
-      aceContract.address,
-      testERC20.address,
-      1
+      aceContract.address, // address _aceAddress,
+      testERC20.address, // address _linkedTokenAddress
+      1 // uint256 _scalingFactor
     );
 
-    // initialise the private asset 
+    // initialise the private asset (private => _linkedTokenAddress=0)
     await deployer.deploy(ZkAssetMintable,
-      aceContract.address,
-      '0x0000000000000000000000000000000000000000',
-      1,
-      0,
-      [],
+      aceContract.address, //  address _aceAddress,
+      '0x0000000000000000000000000000000000000000', // address _linkedTokenAddress,
+      1, // uint256 _scalingFactor,
+      0, // uint24 _optionalMintProofId,
+      [], // bytes memory _optionalInitialisationMint
     );
   }
 };
