@@ -10,7 +10,7 @@ A repository that helps dApp developers deploy AZTEC to a local RSK Node.
 
 2. Install the dependencies `cd aztec-rsk-starter-kit && yarn install`
 
-3. Start RSK node `./rskj-init.sh && ./rsk-start.sh`
+3. Start RSK node `./rskj-init.sh && ./rskj-start.sh`
 
 4. Deploy AZTEC! `yarn migrate`
 
