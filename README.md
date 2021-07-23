@@ -8,7 +8,7 @@ A repository that helps dApp developers deploy AZTEC to a local blockchain.
 
 1. Clone this repository `git clone --recursive git@github.com:patogallaiovlabs/aztec-rsk-starter-kit.git`
 
-2. Install the dependencies `cd aztec-ganache-starter-kit && yarn install`
+2. Install the dependencies `cd aztec-rsk-starter-kit && yarn install`
 
 3. Start RSK node `./rskj-init.sh && ./rsk-start.sh`
 
