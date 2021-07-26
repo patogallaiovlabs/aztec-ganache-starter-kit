@@ -1,10 +1,12 @@
-[![CircleCI](https://circleci.com/gh/AztecProtocol/aztec-ganache-starter-kit.svg?style=svg)](https://circleci.com/gh/AztecProtocol/aztec-ganache-starter-kit)
-
 # aztec-rsk-starter-kit
 
 A repository that helps dApp developers deploy AZTEC to a local RSK Node.
 
 ### Getting started
+0. Prerequisites:
+   1. Node: https://nodejs.org/en/
+   1. Java: https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html
+   2. Yarn: https://classic.yarnpkg.com/en/docs/install/#mac-stable  
 
 1. Clone this repository `git clone --recursive git@github.com:patogallaiovlabs/aztec-rsk-starter-kit.git`
 
