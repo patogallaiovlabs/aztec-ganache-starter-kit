@@ -37,6 +37,7 @@
     "compile-migrate": "truffle compile --all && truffle migrate --reset",
     "migrate": "truffle migrate --reset",
     "demo": "truffle test test/demo.js",
+    "deposit": "truffle test test/deposit.js",
     "truffle": "truffle",
     "debug": "truffle debug"
   }

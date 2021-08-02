@@ -24,17 +24,25 @@ contract("Private payment", accounts => {
 
   beforeEach(async () => {
     privatePaymentContract = await ZkAssetMintable.deployed();
+    console.log('ZkAssetMintable: ', privatePaymentContract.contract);
+    console.log('ZkAssetMintable balance: ', privatePaymentContract);
   });
 
   it("Bob should be able to deposit 100 then pay sally 25 by splitting notes he owns", async () => {
     console.log("Bob wants to deposit 100");
     const bobNote1 = await aztec.note.create(bob.publicKey, 100);
-
+    debugger
     const newMintCounterNote = await aztec.note.create(bob.publicKey, 100);
     const zeroMintCounterNote = await aztec.note.createZeroValueNote();
     const sender = accounts[0];
     const mintedNotes = [bobNote1];
 
+    /*     
+     * @param {Object} currentTotalValueNote - note whose value represents the total current value of minted or burned notes
+     * @param {Object} newTotalValueNote - note whose value represents the new total value of minted or burned notes
+     * @param {Object[]} mintedNotes - notes to be minted or burned
+     * @param {string} sender - Ethereum address of the transaction sender
+     */
     const mintProof = new MintProof(
       zeroMintCounterNote,
       newMintCounterNote,
@@ -42,13 +50,24 @@ contract("Private payment", accounts => {
       sender
     );
 
-    const mintData = mintProof.encodeABI();
+    
 
-    await privatePaymentContract.confidentialMint(MINT_PROOF, mintData, {
+    const mintData = mintProof.encodeABI();
+ 
+    /**
+    * @dev Executes a confidential minting procedure, dependent on the provided proofData
+    * being succesfully validated by the zero-knowledge validator
+    *
+    * @param _proof - uint24 variable which acts as a unique identifier for the proof which
+    * _proofOutput is being submitted. _proof contains three concatenated uint8 variables:
+    * 1) epoch number 2) category number 3) ID number for the proof
+    * @param _proofData - bytes array of proof data, outputted from a proof construction
+    */
+    let result_mint = await privatePaymentContract.confidentialMint(MINT_PROOF, mintData, {
       from: accounts[0]
     });
 
-    console.log("completed mint proof");
+    console.log("completed mint proof", JSON.stringify(result_mint, null, 4));
     console.log("Bob successfully deposited 100");
 
     // bob needs to pay sally for a taxi
@@ -75,7 +94,7 @@ contract("Private payment", accounts => {
       privatePaymentContract.address,
       [bob]
     );
-    await privatePaymentContract.methods["confidentialTransfer(bytes,bytes)"](
+    let result_payment = await privatePaymentContract.methods["confidentialTransfer(bytes,bytes)"](
       sendProofData,
       sendProofSignatures,
       {
@@ -83,6 +102,6 @@ contract("Private payment", accounts => {
       }
     );
 
-    console.log("Bob paid sally 25 for the taxi and gets 75 back");
+    console.log("Bob paid sally 25 for the taxi and gets 75 back", JSON.stringify(result_payment, null, 4));
   });
 });

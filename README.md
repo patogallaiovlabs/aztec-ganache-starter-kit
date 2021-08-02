@@ -14,4 +14,6 @@ A repository that helps dApp developers deploy AZTEC to a local RSK Node.
 
 4. Deploy AZTEC! `yarn migrate`
 
-6. Run the private payment demo. `yarn demo`
+5. Run the demos:
+- Basic demo, simulate mint and transfer: `yarn demo`
+- Demo mint ERC20 and deposit to a ZkAsset contract: `yarn deposit`

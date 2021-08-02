@@ -17,7 +17,7 @@ module.exports = (deployer) => {
     new Promise(() => {
         return deployer.deploy(AdjustableFactory, ACE.address).then(async ({ address }) => {
             const ace = await ACE.at(ACE.address);
-
+            console.log("AdjustableFactory address:", address);
             await ace.setFactory(1 * 256 ** 2 + 1 * 256 ** 1 + 2 * 256 ** 0, address);
         });
     });

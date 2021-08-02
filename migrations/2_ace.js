@@ -32,10 +32,15 @@ module.exports = async (deployer, network) => {
     const JoinSplitFluidContract = await JoinSplitFluid.deployed();
     await ACEContract.setCommonReferenceString(bn128.CRS);
     await ACEContract.setProof(MINT_PROOF, JoinSplitFluidContract.address);
+    console.log("JoinSplitFluidContract.address:", JoinSplitFluidContract.address);
     await ACEContract.setProof(SWAP_PROOF, Swap.address);
+    console.log("Swap.address:", Swap.address);
     await ACEContract.setProof(DIVIDEND_PROOF, Dividend.address);
+    console.log("Dividend.address:", Dividend.address);
     await ACEContract.setProof(JOIN_SPLIT_PROOF, JoinSplit.address);
+    console.log("JoinSplit.address:", JoinSplit.address);
     await ACEContract.setProof(PRIVATE_RANGE_PROOF, PrivateRange.address);
+    console.log("PrivateRange.address:", PrivateRange.address);
     console.log('ACE address:', ACEContract.address);
   }
 };
