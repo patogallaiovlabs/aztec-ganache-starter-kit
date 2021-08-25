@@ -11,6 +11,7 @@
     "@aztec/secp256k1": "1.2.0",
     "aztec.js": "0.18.0",
     "global": "^4.4.0",
+    "node-fetch": "^2.6.1",
     "openzeppelin-solidity": "^2.2.0",
     "web3": "^1.0.0-beta.51"
   },
@@ -23,6 +24,7 @@
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/runtime": "^7.4.2",
+    "@truffle/hdwallet-provider": "^1.5.0",
     "dotenv": "^8.2.0",
     "ganache-cli": "^6.4.3",
     "ganache-core": "^2.5.4-beta.2",
@@ -36,6 +38,7 @@
     "compile": "truffle compile --all",
     "compile-migrate": "truffle compile --all && truffle migrate --reset",
     "migrate": "truffle migrate --reset",
+    "migrate-testnet": "truffle migrate --network testnet --reset",
     "demo": "truffle test test/demo.js",
     "deposit": "truffle test test/deposit.js",
     "truffle": "truffle",

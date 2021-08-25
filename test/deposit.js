@@ -86,16 +86,13 @@ contract("Private payment", accounts => {
     const depositOutputNotes = [await note.create(bob.publicKey, depositPublicValue)];
     const publicValue = depositPublicValue * -1;
 
-    //depositOutputNotes.forEach((individualNote) => {
-    //    return individualNote.setMetaData(customMetaData.data);
-    //});
-
     const depositProof = new JoinSplitProof(depositInputNotes, depositOutputNotes, sender, publicValue, publicOwner);
     const depositData = depositProof.encodeABI(zkAsset.address);
     const depositSignatures = depositProof.constructSignatures(zkAsset.address, depositInputOwnerAccounts);
 
     await ace.publicApprove(zkAsset.address, depositProof.hash, 20, { from: bob.address });
     let result = await zkAsset.methods['confidentialTransfer(bytes,bytes)'](depositData, depositSignatures, { from: bob.address });
+    debugger
     expect(result.logs[0].event).to.equal('CreateNote');
     expect(result.logs[0].args.owner).to.equal(bob.address);
     expect(result.logs[1].event).to.equal('ConvertTokens');
